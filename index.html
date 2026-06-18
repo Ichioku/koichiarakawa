@@ -15,10 +15,13 @@
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://ichioku.github.io/koichiarakawa">
 
-
   <script src="https://cdn.tailwindcss.com"></script>
 
-
+<script>
+  tailwind.config = {
+    darkMode: 'selector' // This tells Tailwind to look for the "dark" class on the <html> element
+  }
+</script>
   <style>
   html {
     scroll-behavior: smooth;
@@ -35,24 +38,26 @@
 </style>
 </head>
 
-<body class="bg-black text-gray-200 font-mono">
+
+<body class="bg-white text-black dark:bg-black dark:text-white font-mono">
 
 
 <nav class="fixed top-0 left-0 w-full z-50 bg-blue-600 dark:bg-gray-900 backdrop-blur-sm shadow-sm">
   <div class="max-w-5xl mx-auto px-6 py-4 flex justify-between items-center">
 
+    <div class="text-xl font-bold text-black dark:text-white">Koichi Arakawa</div>        
     
-    <div class="text-xl font-bold text-black dark:text-white">Koichi Arakawa</div>
-
-
-    
-    <div class="hidden md:flex space-x-6 text-black dark:text-white">
+    <div class="hidden md:flex items-center space-x-6 text-black dark:text-white">
       <a href="#hero" class="hover:underline">Home</a>
       <a href="#about" class="hover:underline">About</a>
       <a href="#skills" class="hover:underline">Skills</a>
       <a href="#certifications" class="hover:underline">Certifications</a>
       <a href="#projects" class="hover:underline">Projects</a>
       <a href="#contact" class="hover:underline">Contact</a>
+      <button id="theme-toggle"
+        class="border px-3 py-1 rounded">
+          🌙
+      </button>
     </div>
 
     
@@ -61,7 +66,23 @@
     </button>
   </div>
 
+  <div id="mobile-menu" class="hidden md:hidden w-full bg-blue-600 dark:bg-gray-900 border-t border-blue-700 dark:border-gray-800">
+    <div class="flex items-center space-x-6 px-6 py-3 overflow-x-auto scrollbar-none whitespace-nowrap">
+      <a href="#hero" class="text-white dark:text-gray-200 hover:underline text-sm">Home</a>
+      <a href="#about" class="text-white dark:text-gray-200 hover:underline text-sm">About</a>
+      <a href="#skills" class="text-white dark:text-gray-200 hover:underline text-sm">Skills</a>
+      <a href="#certifications" class="text-white dark:text-gray-200 hover:underline text-sm">Certifications</a>
+      <a href="#projects" class="text-white dark:text-gray-200 hover:underline text-sm">Projects</a>
+      <a href="#contact" class="text-white dark:text-gray-200 hover:underline text-sm">Contact</a>
+      
+      <button id="theme-toggle-mobile" class="border border-white dark:border-gray-400 px-2 py-0.5 rounded text-sm">
+        🌙
+      </button>
+    </div>
+  </div>
+
   
+      <!-- vertical dropdown menu for mobile
   <div id="mobile-menu" class="hidden md:hidden w-full bg-blue-600 dark:bg-gray-900 border-t border-gray-200 dark:border-gray-800">
     <div class="max-w-5xl mx-auto px-6 py-4 flex flex-col items-center space-y-3 text-black dark:text-white text-lg">
       <a href="#hero" class="w-full text-center py-2 hover:underline">Home</a>
@@ -70,8 +91,14 @@
       <a href="#certifications" class="w-full text-center py-2 hover:underline">Certifications</a>
       <a href="#projects" class="w-full text-center py-2 hover:underline">Projects</a>
       <a href="#contact" class="w-full text-center py-2 hover:underline">Contact</a>
+      <button id="theme-toggle"
+        class="border px-3 py-1 rounded">
+          🌙
+      </button>
     </div>
   </div>
+  
+      -->
 </nav>
 
   
@@ -84,34 +111,43 @@
       I'm hoping to learn different technologies and gain more experience in different fields, not only in IT but in other industries as well.
     </p>
 
-    <div class="flex flex-wrap justify-center gap-4">
+    <div class="flex flex-col items-center gap-6 w-full max-w-xl">
+  
+      <div class="flex flex-wrap justify-center gap-4 w-full border-b border-gray-400 dark:border-gray-600 pb-6">
+        
+        <div class="relative inline-block text-left">
+          <a href="resume/Resume-en.pdf" target="_blank"
+            class="px-6 py-3 font-bold bg-blue-600 dark:bg-green-400 text-black rounded shadow hover:opacity-80  transition flex items-center gap-2">
+            📄 Download English Resume
+          </a>
+          </div>
 
-      <a href="#about"
-         class="px-4 py-2 bg-blue-600 dark:bg-green-400 text-black rounded hover:opacity-80 transition">
-         About
-      </a>
+      </div>
 
-      <a href="#skills"
-         class="px-4 py-2 border border-blue-600 dark:border-green-400 text-blue-600 dark:text-green-400 rounded hover:bg-green-400 hover:text-black transition">
-         Skills
-      </a>
+      <div class="flex flex-wrap justify-center gap-4">
 
-      <a href="#certifications"
-         class="px-4 py-2 bg-blue-600 dark:bg-green-400 text-black rounded hover:opacity-80 transition">
-         Certifications
-      </a>
+        <a href="#about"
+          class="px-4 py-2 border border-blue-600 dark:border-green-400 text-blue-600 dark:text-green-400 rounded hover:bg-blue-600 dark:hover:bg-green-400  hover:text-black transition">
+          About
+        </a>
+        <a href="#skills"
+          class="px-4 py-2 border border-blue-600 dark:border-green-400 text-blue-600 dark:text-green-400 rounded hover:bg-blue-600 dark:hover:bg-green-400  hover:text-black transition">
+          Skills
+        </a>
+        <a href="#certifications"
+          class="px-4 py-2 border border-blue-600 dark:border-green-400 text-blue-600 dark:text-green-400 rounded hover:bg-blue-600 dark:hover:bg-green-400  hover:text-black transition">
+          Certifications
+        </a>
+        <a href="#projects"
+          class="px-4 py-2 border border-blue-600 dark:border-green-400 text-blue-600 dark:text-green-400 rounded hover:bg-blue-600 dark:hover:bg-green-400  hover:text-black transition">
+          View Projects
+        </a>
+        <a href="#contact"
+          class="px-4 py-2 border border-blue-600 dark:border-green-400 text-blue-600 dark:text-green-400 rounded hover:bg-blue-600 dark:hover:bg-green-400  hover:text-black transition">
+          Contact Me
+        </a>
 
-      <a href="#projects"
-         class="px-4 py-2 border border-blue-600 dark:border-green-400 text-blue-600 dark:text-green-400 rounded hover:bg-green-400 hover:text-black transition">
-         View Projects
-      </a>
-
-      <a href="#contact"
-         class="px-4 py-2 bg-blue-600 dark:bg-green-400 text-black rounded hover:opacity-80 transition">
-         Contact Me
-      </a>
-
-
+      </div>
     </div>
   </section>
 
@@ -131,7 +167,7 @@
 
       <p>
         Right now, I’m focusing on HTML, CSS, JavaScript, and Tailwind CSS. <br>
-        After that, I'm planning on exploring ReactJS and Amazon AWS.
+        Once this site is satisfactory, I'll upgrade it to React JS and then integrate it with some AWS Service.
       </p>
 
       <p>
@@ -208,7 +244,7 @@
           AWS Cloud Practitioner Essentials
         </h3>
 
-        <p class="text-gray-600 dark:text-gray-300 mb-4">
+        <p class="text-gray-600 dark:text-gray-300 mb-2">
           Completed - AWS Skill Builder
         </p>
 
@@ -239,14 +275,15 @@
         <h3 class="text-xl font-semibold text-gray-800 dark:text-gray-100">
           TOEIC
         </h3>
-        <p class="text-gray-600 dark:text-gray-300">
+        <p class="text-gray-600 dark:text-gray-300 mb-2">
           985 - Listening and Reading Examination
         </p>
+        <div class="flex gap-4 justify-center">
           <a href="https://iibc.cloudcerts.jp/viewer/cert/5aJemlWBgNAqgu68NgOA5VmIbVAVQ8JR5WLbovWyvABYaHAGNjxv2DNtwdRajZp4" target="_blank"
-            class="text-blue-600 dark:text-blue-400 hover:underline">
-            Digital Official Certificate
+            class="px-4 py-2 bg-blue-600 dark:bg-green-400 text-black rounded">
+            View
           </a>
-        
+        </div>
       </div>
 
     </div>
@@ -265,7 +302,8 @@
       <!-- Project 1 -->
       <div class="bg-white dark:bg-gray-900 rounded-xl p-6 shadow">
         <div class="mb-4">
-          <img src="konnect-ss.png" alt="Project Screenshot" class="rounded-lg w-full object-cover" loading="lazy">
+          <img src="konnect-ss.png" alt="Project Screenshot" loading="lazy"
+            class="rounded-lg w-full object-cover transition-transform duration-300 hover:scale-[1.02]">
         </div>
 
         <h3 class="text-xl font-semibold mb-2 text-gray-800 dark:text-gray-100">
@@ -292,7 +330,8 @@
       <!-- Project 2 -->
       <div class="bg-white dark:bg-gray-900 rounded-xl p-6 shadow">
         <div class="mb-4">
-          <img src="webport-ss.png" alt="Project Screenshot" class="rounded-lg w-full object-cover" loading="lazy">
+          <img src="webport-ss.png" alt="Project Screenshot" loading="lazy"
+            class="rounded-lg w-full object-cover transition-transform duration-300 hover:scale-[1.02]">
         </div>
 
         <h3 class="text-xl font-semibold mb-2 text-gray-800 dark:text-gray-100">
@@ -307,10 +346,10 @@
         <div class="text-sm text-black dark:text-gray-300 mb-4">HTML • Tailwind CSS • JS</div>
 
         <div class="flex gap-4">
-          <a href="https://github.com/Ichioku/Konnect" target="_blank" class="text-blue-600 dark:text-blue-400 font-medium hover:underline">
+          <a href="https://github.com/Ichioku/koichiarakawa" target="_blank" class="text-blue-600 dark:text-blue-400 font-medium hover:underline">
             View Code
           </a>
-          <a href="https://ichioku.github.io/Konnect/" target="_blank" class="text-blue-600 dark:text-blue-400 font-medium hover:underline">
+          <a href="https://ichioku.github.io/koichiarakawa" target="_blank" class="text-blue-600 dark:text-blue-400 font-medium hover:underline">
             Live Demo
           </a>
         </div>
@@ -406,9 +445,45 @@
   })();
 </script>
 
+<script>
+  const themeToggle = document.getElementById("theme-toggle");
+  const themeToggleMobile = document.getElementById("theme-toggle-mobile");
+
+  // Helper function to update icons on BOTH buttons simultaneously
+  function updateToggleIcons(isDark) {
+    const icon = isDark ? "☀️" : "🌙";
+    if (themeToggle) themeToggle.textContent = icon;
+    if (themeToggleMobile) themeToggleMobile.textContent = icon;
+  }
+
+  // Check localStorage OR fall back to the system/browser preference
+  const isDarkMode = localStorage.theme === 'dark' || 
+    (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches);
+
+  // Apply the correct state on initial load
+  if (isDarkMode) {
+    document.documentElement.classList.add("dark");
+    updateToggleIcons(true);
+  } else {
+    document.documentElement.classList.remove("dark");
+    updateToggleIcons(false);
+  }
+
+  // Core function to handle the switch
+  function toggleTheme() {
+    const isNowDark = document.documentElement.classList.toggle("dark");
+    localStorage.theme = isNowDark ? "dark" : "light";
+    updateToggleIcons(isNowDark);
+  }
+
+  // Attach the exact same logic to both buttons
+  if (themeToggle) themeToggle.addEventListener("click", toggleTheme);
+  if (themeToggleMobile) themeToggleMobile.addEventListener("click", toggleTheme);
+</script>
+
 
 <footer class="py-6 text-center text-black dark:text-gray-400 bg-white dark:bg-gray-900">
-  © 2025 Koichi Arakawa. All rights reserved.
+  ©2026 Koichi Arakawa. All rights reserved.
 </footer>
 
 </body>
